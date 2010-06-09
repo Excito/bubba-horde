@@ -1,0 +1,13 @@
+#!/bin/sh
+# prerm script for bubba-horde
+
+set -e
+. /usr/share/debconf/confmodule
+. /usr/share/dbconfig-common/dpkg/prerm.mysql 
+dbc_go bubba-horde $@
+
+#DEBHELPER#
+
+exit 0
+
+

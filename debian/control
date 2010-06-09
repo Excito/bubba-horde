@@ -1,0 +1,47 @@
+Source: bubba-horde
+Section: web
+Priority: important
+Maintainer: Carl Fürstenberg <carl@excito.com>
+Build-Depends: cdbs, debhelper (>= 5), po-debconf
+Standards-Version: 3.8.0
+
+Package: bubba-horde
+Architecture: all
+Provides: dimp1, horde3, imp4, kronolith2, mnemo2, turba2
+Conflicts: dimp1, horde3, imp4, kronolith2, mnemo2, turba2
+Replaces: dimp (<= 1.0), dimp1 (< 1.1), horde3 (< 3.3), imp4 (< 4.3), kronolith2 (< 2.3), mnemo2 (< 2.2.1), turba2 (< 2.3)
+Depends: ${shlibs:Depends}, ${misc:Depends}, 
+ apache2-mpm-prefork | httpd-cgi | httpd,
+ dovecot-imapd (>= 1.0) | imap-server,
+ postfix (>= 2.5.1) | mail-transport-agent,
+ php5-cgi (>= 5.2.0) | phpapi-20060613+lfs,
+ php5-cli (>= 5.2.0),
+ horde3-base (>= 3.3),
+ imp4-base,
+ dimp1-base,
+ kronolith2-base,
+ mnemo2-base,
+ turba2-base,
+ php5-xcache,
+ dbconfig-common,
+ mysql-server (>= 5.0),
+ php5-mcrypt,
+ php5-gd,
+ php-mail-mime,
+ php-mail,
+ php-log,
+ php-db,
+ php-file,
+ php-date,
+ php5-imap,
+ php-pear,
+ php5-mysql,
+ php-net-imap,
+ php-mdb2,
+ php-mdb2-driver-mysql (>= 1.5.0b1-1),
+ php-mdb2-schema,
+ php-soap,
+ php-http-webdav-server
+Description: Horde installation for the bubba platform
+ This package contains the configuration files for the various horde packages
+ that bubba uses.

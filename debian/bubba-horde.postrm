@@ -1,0 +1,70 @@
+#!/bin/sh
+# postrm script for bubba-horde
+#
+# see: dh_installdeb(1)
+
+set -e
+
+lighttpd_remove() {
+	if [ -d /etc//lighttpd/conf-available ] && [ -L /etc/lighttpd/conf-available/50-horde.conf ] ; then
+		rm -f /etc/lighttpd/conf-available/50-horde.conf
+	fi
+	if [ -d /etc//lighttpd/conf-enabled ] && [ -L /etc/lighttpd/conf-enabled/50-horde.conf ] ; then
+		rm -f /etc/lighttpd/conf-enabled/50-horde.conf
+	fi
+}
+
+apache_remove() {
+	if [ -d /etc/$webserver/conf.d ] && [ -L /etc/$webserver/conf.d/horde.conf ]; then
+		rm -f /etc/$webserver/conf.d/horde.conf
+	fi
+}
+
+if [ -f /usr/share/debconf/confmodule ]; then
+	. /usr/share/debconf/confmodule
+fi
+if [ -f /usr/share/dbconfig-common/dpkg/postrm.mysql ]; then
+	. /usr/share/dbconfig-common/dpkg/postrm.mysql
+	dbc_go bubba-horde $@
+fi
+
+if [ "$1" = "purge" ]; then
+	rm -f /etc/horde/debian-db.php
+	if which ucf >/dev/null 2>&1; then
+		ucf --purge /etc/horde/debian-db.php
+	fi
+fi
+
+if [ "$1" = "remove" ] || [ "$1" = "purge" ]; then
+
+	if [ -f /usr/share/debconf/confmodule ]; then
+		db_version 2.0
+
+		db_get bubba-horde/reconfigure-webserver
+
+		webservers="$RET"
+
+		for webserver in $webservers; do
+			webserver=${webserver%,}
+			if [ "$webserver" = "lighttpd" ] ; then
+				lighttpd_remove
+			else
+				apache_remove $webserver
+			fi
+			# Redirection of 3 is needed because Debconf uses it and it might 
+			# be inherited by webserver. See bug #446324.
+			if [ -x /usr/sbin/invoke-rc.d ]; then
+				invoke-rc.d $webserver reload 3>/dev/null || true
+			else
+				/etc/init.d/$webserver reload 3>/dev/null || true
+			fi
+		done
+	fi
+fi
+
+
+#DEBHELPER#
+
+exit 0
+
+

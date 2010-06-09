@@ -1,0 +1,373 @@
+bubba-horde (3.3.5ex3) claire; urgency=low
+
+  * disable pretty urls 
+
+ -- Carl Fürstenberg <carl@excito.com>  Thu, 29 Oct 2009 15:52:11 +0100
+
+bubba-horde (3.3.5ex2) claire; urgency=low
+
+  * adding dependency on pear package HTTP_WebDav_Server 
+
+ -- Carl Fürstenberg <carl@excito.com>  Thu, 29 Oct 2009 15:46:47 +0100
+
+bubba-horde (3.3.5ex1) claire; urgency=low
+
+  * new upstream release, sync with upstream horde3 version
+  * adding php-soap depends 
+
+ -- Carl Fürstenberg <carl@excito.com>  Wed, 16 Sep 2009 13:14:46 +0200
+
+bubba-horde (0.0.58) claire; urgency=low
+
+  * updating config from upstream new 
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 30 Jan 2009 21:55:44 +0100
+
+bubba-horde (0.0.57) estelle; urgency=low
+
+  * changing lighttpd to apache2-mpm-prefork as main depends for httpd 
+
+ -- Carl Fürstenberg <carl@excito.com>  Thu, 29 Jan 2009 17:55:33 +0100
+
+bubba-horde (0.0.56) intrepid; urgency=low
+
+  * fix back the server.php for imp 
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 21 Nov 2008 15:28:18 +0100
+
+bubba-horde (0.0.55) intrepid; urgency=low
+
+  * forgot one in imp :/ 
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 21 Nov 2008 15:22:26 +0100
+
+bubba-horde (0.0.54) intrepid; urgency=low
+
+  * revert some dumb copy/paste changes 
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 21 Nov 2008 15:13:15 +0100
+
+bubba-horde (0.0.53) intrepid; urgency=low
+
+  * force dependices for the mysql driver to least 1.5.0b1-1 
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 14 Nov 2008 18:08:59 +0100
+
+bubba-horde (0.0.52) intrepid; urgency=low
+
+  * fix HORDE_BASE in upgrade script be absolute 
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 14 Nov 2008 17:52:36 +0100
+
+bubba-horde (0.0.51) intrepid; urgency=low
+
+  * updating the upgrade configuration and updating the initial database 
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 10 Nov 2008 17:59:00 +0100
+
+bubba-horde (0.0.50) hardy; urgency=low
+
+  * update conf for new horde 
+
+ -- Carl Fürstenberg <carl@excito.com>  Wed, 15 Oct 2008 18:12:34 +0200
+
+bubba-horde (0.0.49) unstable; urgency=low
+
+  * change depends on the base packages, and provide the main ones
+  * change depends/provides from dimp to dimp1 
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 10 Oct 2008 17:48:34 +0200
+
+bubba-horde (0.0.48) hardy; urgency=low
+
+  * increasing version for test purposes 
+
+ -- Carl Fürstenberg <carl@excito.com>  Thu, 25 Sep 2008 11:05:22 +0200
+
+bubba-horde (0.0.47) hardy; urgency=low
+
+  * add check so that dpkg doesn't bail of $2 doesn't exists
+
+ -- Carl Fürstenberg <carl@excito.com>  Wed, 17 Sep 2008 14:01:48 +0200
+
+bubba-horde (0.0.46) hardy; urgency=low
+
+  * Reduce logging level to PEAR_LOG_ERR 
+
+ -- Carl Fürstenberg <carl@excito.com>  Tue, 16 Sep 2008 15:23:45 +0200
+
+bubba-horde (0.0.45) hardy; urgency=low
+
+  * Add static aliases instead of rewrites 
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 15 Sep 2008 14:44:02 +0200
+
+bubba-horde (0.0.44) hardy; urgency=low
+
+  * forgot to add the postinst script :(
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 08 Sep 2008 10:12:48 +0200
+
+bubba-horde (0.0.43) hardy; urgency=low
+
+  * fix removal of old cron scripts
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 08 Sep 2008 10:09:57 +0200
+
+bubba-horde (0.0.42) unstable; urgency=low
+
+  * wrong path to the alarm script 
+
+ -- Carl Fürstenberg <azatoth@gmail.com>  Sun, 31 Aug 2008 02:02:31 +0200
+
+bubba-horde (0.0.41) unstable; urgency=low
+
+  * missing space 
+
+ -- Carl Fürstenberg <azatoth@gmail.com>  Sun, 31 Aug 2008 01:44:38 +0200
+
+bubba-horde (0.0.40) unstable; urgency=low
+
+  * move cron tabs from the packages into this 
+  * change lighty config enabling/disabling 
+  * added po-debconf (lintian said so) 
+
+ -- Carl Fürstenberg <azatoth@gmail.com>  Sun, 31 Aug 2008 00:41:21 +0200
+
+bubba-horde (0.0.39) unstable; urgency=low
+
+  * added apache2 to default in debconf template 
+
+ -- Carl Fürstenberg <carl@excito.com>  Tue, 19 Aug 2008 23:04:01 +0200
+
+bubba-horde (0.0.38) unstable; urgency=low
+
+  *  adding apache rewrite rules
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 18 Aug 2008 16:17:16 +0200
+
+bubba-horde (0.0.37) unstable; urgency=low
+
+  * disable trailer 
+  * change order in postinst to allow chown to chown the touched file if it
+    didn't exists 
+
+ -- Carl Fürstenberg <carl@excito.com>  Thu, 14 Aug 2008 13:57:33 +0200
+
+bubba-horde (0.0.36) unstable; urgency=low
+
+  * had forgot changing the _detect_webroot function 
+
+ -- Carl Fürstenberg <carl@excito.com>  Tue, 12 Aug 2008 15:52:36 +0200
+
+bubba-horde (0.0.35) unstable; urgency=low
+
+  * change url path to /pim, and adding semi-redirects 
+
+ -- Carl Fürstenberg <carl@excito.com>  Tue, 12 Aug 2008 15:10:12 +0200
+
+bubba-horde (0.0.34) unstable; urgency=low
+
+  * Setting cookie domain to an empty string.  (Closes: #336)
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 04 Aug 2008 04:05:52 +0200
+
+bubba-horde (0.0.33) unstable; urgency=low
+
+  * fix logs and permissions 
+
+ -- Carl Fürstenberg <carl@excito.com>  Wed, 30 Jul 2008 15:21:03 +0200
+
+bubba-horde (0.0.32) unstable; urgency=low
+
+  * changing user to horde
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 11 Jul 2008 07:38:26 +0000
+
+bubba-horde (0.0.31) unstable; urgency=low
+
+  * Fix logging permissions 
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 11 Jul 2008 07:12:47 +0000
+
+bubba-horde (0.0.30) unstable; urgency=low
+
+  * updating imap server config 
+
+ -- Carl Fürstenberg <carl@excito.com>  Thu, 10 Jul 2008 14:53:16 +0000
+
+bubba-horde (0.0.29) unstable; urgency=low
+
+  * force dependice on ex2 version of horde3 
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 07 Jul 2008 09:36:40 +0000
+
+bubba-horde (0.0.28) unstable; urgency=low
+
+  * modify imap server config to local/notls 
+  * adding rules for logging 
+  * adding dependices on dovecot and postfix plus generic provides 
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 07 Jul 2008 09:10:42 +0000
+
+bubba-horde (0.0.27) unstable; urgency=low
+
+  * specify dependice to lighttpd and php5-cgi 
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 04 Jul 2008 10:23:18 +0200
+
+bubba-horde (0.0.26) unstable; urgency=low
+
+  * applying optimizations 
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 30 Jun 2008 19:43:20 +0200
+
+bubba-horde (0.0.25) unstable; urgency=low
+
+  * updating imap server configuration 
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 30 Jun 2008 16:26:27 +0200
+
+bubba-horde (0.0.24) unstable; urgency=low
+
+  * fix cookie 
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 30 Jun 2008 14:12:53 +0200
+
+bubba-horde (0.0.23) unstable; urgency=low
+
+  * adding dep to php-mdb2-driver-mysql 
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 30 Jun 2008 14:01:06 +0200
+
+bubba-horde (0.0.22) unstable; urgency=low
+
+  * logging doesn't work 
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 30 Jun 2008 13:53:21 +0200
+
+bubba-horde (0.0.21) unstable; urgency=low
+
+  * whoops 
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 30 Jun 2008 13:43:17 +0200
+
+bubba-horde (0.0.20) unstable; urgency=low
+
+  * enable logging 
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 30 Jun 2008 13:41:20 +0200
+
+bubba-horde (0.0.19) unstable; urgency=low
+
+  * adding php-mdb2 as dep 
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 30 Jun 2008 13:37:04 +0200
+
+bubba-horde (0.0.18) unstable; urgency=low
+
+  * fixing dependices 
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 30 Jun 2008 11:23:57 +0200
+
+bubba-horde (0.0.17) unstable; urgency=low
+
+  * Adding depends 
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 30 Jun 2008 11:17:42 +0200
+
+bubba-horde (0.0.16) unstable; urgency=low
+
+  * strip down detect webroot function to be static 
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 30 Jun 2008 11:04:31 +0200
+
+bubba-horde (0.0.15) unstable; urgency=low
+
+  * correcting paths to point to /usr/share/horde instead 
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 30 Jun 2008 10:53:43 +0200
+
+bubba-horde (0.0.14) unstable; urgency=low
+
+  * Missing semicolon in conf.php 
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 27 Jun 2008 14:49:04 +0200
+
+bubba-horde (0.0.13) unstable; urgency=low
+
+  * must be runable in config as well 
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 27 Jun 2008 14:42:31 +0200
+
+bubba-horde (0.0.12) unstable; urgency=low
+
+  * loose underscore 
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 27 Jun 2008 14:37:48 +0200
+
+bubba-horde (0.0.11) unstable; urgency=low
+
+  * etch might not like comments 
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 27 Jun 2008 14:36:13 +0200
+
+bubba-horde (0.0.10) unstable; urgency=low
+
+  * registering the httpd conf files 
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 27 Jun 2008 14:32:51 +0200
+
+bubba-horde (0.0.9) unstable; urgency=low
+
+  * Adding apache and lighttpd config files 
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 27 Jun 2008 11:49:15 +0200
+
+bubba-horde (0.0.8) unstable; urgency=low
+
+  * adapt config file 
+
+ -- Carl Fürstenberg <carl@excito.com>  Thu, 26 Jun 2008 14:26:38 +0200
+
+bubba-horde (0.0.7) unstable; urgency=low
+
+  * minor stuff 
+
+ -- Carl Fürstenberg <carl@excito.com>  Thu, 26 Jun 2008 14:06:55 +0200
+
+bubba-horde (0.0.6) unstable; urgency=low
+
+  * Fix removal of php script for purge in postrm 
+
+ -- Carl Fürstenberg <carl@excito.com>  Thu, 26 Jun 2008 13:59:34 +0200
+
+bubba-horde (0.0.5) unstable; urgency=low
+
+  * Adding initial database creation scripts 
+
+ -- Carl Fürstenberg <carl@excito.com>  Thu, 26 Jun 2008 13:18:17 +0200
+
+bubba-horde (0.0.4) unstable; urgency=low
+
+  * it's only dimp, not dimp1 
+
+ -- Carl Fürstenberg <carl@excito.com>  Thu, 26 Jun 2008 10:38:40 +0200
+
+bubba-horde (0.0.3) unstable; urgency=low
+
+  * and fix it's version 
+
+ -- Carl Fürstenberg <carl@excito.com>  Thu, 26 Jun 2008 10:36:50 +0200
+
+bubba-horde (0.0.2) unstable; urgency=low
+
+  * Fix horde dependice 
+
+ -- Carl Fürstenberg <carl@excito.com>  Thu, 26 Jun 2008 10:34:26 +0200
+
+bubba-horde (0.0.1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Carl Fürstenberg <carl@excito.com>  Thu, 26 Jun 2008 10:03:50 +0200

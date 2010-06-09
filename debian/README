@@ -1,0 +1,6 @@
+The Debian Package bubba-horde
+----------------------------
+
+This package is required to ber able to have horde use imp for login (otherwise circular dependices)
+
+ -- Carl Fürstenberg <carl@excito.com>  Thu, 26 Jun 2008 10:03:50 +0200

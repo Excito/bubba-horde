@@ -1,0 +1,67 @@
+#!/bin/sh
+# postinst script for bubba-horde
+
+set -e
+lighttpd_install() {
+	if [ ! -f /etc/lighttpd/conf-available/50-horde.conf ] ; then
+		if [ ! -x /usr/sbin/lighty-enable-mod ] ; then
+			echo "Lighttpd not installed, skipping"
+		else
+			ln -s ../../horde/lighttpd.conf /etc/lighttpd/conf-available/50-horde.conf
+			ln -s /etc/lighttpd/conf-available/50-horde.conf /etc/lighttpd/conf-enabled/50-horde.conf
+		fi
+	fi
+}
+apache_install() {
+	webserver=$1
+	if [ -d /etc/$webserver/conf.d ] && [ ! -e /etc/$webserver/conf.d/horde.conf ]; then
+		ln -s ../../horde/apache.conf /etc/$webserver/conf.d/horde.conf
+	fi
+}
+
+# source debconf stuff
+. /usr/share/debconf/confmodule
+# source dbconfig-common stuff
+. /usr/share/dbconfig-common/dpkg/postinst.mysql
+
+dbc_generate_include_owner=www-data:www-data
+dbc_generate_include_perms=0660
+dbc_generate_include=php:/etc/horde/debian-db.php
+dbc_go bubba-horde $@
+
+if [ "$1" = "configure" ]; then
+	# Fix permissions
+	chmod 0770 /var/log/horde
+	# we make sure the log file exists and is chmodded goodly
+	touch -a /var/log/horde/horde3.log
+	chmod 0660 /var/log/horde/horde3.log
+	chown  -R root:www-data /var/log/horde
+	db_version 2.0
+
+	# Configure webserver
+	db_get bubba-horde/reconfigure-webserver
+
+	webservers="$RET"
+
+	for webserver in $webservers; do
+		webserver=${webserver%,}
+		if [ "$webserver" = "lighttpd" ] ; then
+			lighttpd_install
+		else
+			apache_install $webserver
+		fi
+		# Reload webserver in any case, configuration might have changed
+		# Redirection of 3 is needed because Debconf uses it and it might 
+		# be inherited by webserver. See bug #446324.
+		if [ -x /usr/sbin/invoke-rc.d ]; then
+			invoke-rc.d $webserver reload 3>/dev/null || true
+		else
+			/etc/init.d/$webserver reload 3>/dev/null || true
+		fi
+	done
+fi
+#DEBHELPER#
+
+exit 0
+
+

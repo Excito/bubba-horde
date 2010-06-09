@@ -1,8 +1,15 @@
+bubba-horde (3.3.5ex4) vincent; urgency=low
+
+  * B3
+  * Switch to dpkg-source 3.0 (native) format
+
+ -- Carl Fürstenberg <carl@excito.com>  Wed, 09 Jun 2010 15:56:03 +0200
+
 bubba-horde (3.3.5ex3) claire; urgency=low
 
   * disable pretty urls 
 
- -- Carl Fürstenberg <carl@excito.com>  Thu, 29 Oct 2009 15:52:11 +0100
+ -- Carl Fürstenberg <carl@excito.com>  Wed, 09 Jun 2010 15:54:47 +0200
 
 bubba-horde (3.3.5ex2) claire; urgency=low
 

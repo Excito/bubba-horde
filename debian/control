@@ -2,14 +2,14 @@ Source: bubba-horde
 Section: web
 Priority: important
 Maintainer: Carl Fürstenberg <carl@excito.com>
-Build-Depends: cdbs, debhelper (>= 5), po-debconf
-Standards-Version: 3.8.0
+Build-Depends: debhelper (>= 7.2), po-debconf
+Standards-Version: 3.8.4
 
 Package: bubba-horde
 Architecture: all
 Provides: dimp1, horde3, imp4, kronolith2, mnemo2, turba2
 Conflicts: dimp1, horde3, imp4, kronolith2, mnemo2, turba2
-Replaces: dimp (<= 1.0), dimp1 (< 1.1), horde3 (< 3.3), imp4 (< 4.3), kronolith2 (< 2.3), mnemo2 (< 2.2.1), turba2 (< 2.3)
+Replaces: dimp (<= 1.0), dimp1 (<< 1.1), horde3 (<< 3.3), imp4 (<< 4.3), kronolith2 (<< 2.3), mnemo2 (<< 2.2.1), turba2 (<< 2.3)
 Depends: ${shlibs:Depends}, ${misc:Depends}, 
  apache2-mpm-prefork | httpd-cgi | httpd,
  dovecot-imapd (>= 1.0) | imap-server,

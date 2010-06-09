@@ -1,8 +1,11 @@
 #!/usr/bin/make -f
   
-include /usr/share/cdbs/1/rules/debhelper.mk
+%:
+	dh $@
 
-install/bubba-horde::
+
+override_dh_install:
+	dh_install
 	install -DT database.sql debian/bubba-horde/usr/share/dbconfig-common/data/bubba-horde/install/mysql
 	for upgrade in upgrades/*; do \
 		ver=`basename $$upgrade`; \
@@ -17,6 +20,5 @@ install/bubba-horde::
 			find $$upgrade/scripts/ -type f -printf "/usr/share/bubba-horde/upgrades/$$ver/%f\n" >> debian/bubba-horde/usr/share/dbconfig-common/scripts/bubba-horde/upgrade/mysql/$$ver; \
 			chmod 755 debian/bubba-horde/usr/share/dbconfig-common/scripts/bubba-horde/upgrade/mysql/$$ver; \
 		fi; \
-	done; \
+	done; 
 			
-# Add here any variable or target overrides you need.

@@ -163,12 +163,15 @@ $prefGroups['filters'] = array(
     'url' => 'filterprefs.php'
 );
 
+$contacts_app = $GLOBALS['registry']->hasInterface('contacts');
+if ($contacts_app && $GLOBALS['registry']->hasPermission($contacts_app)) {
 $prefGroups['addressbooks'] = array(
     'column' => _("Other Options"),
     'label' => _("Address Books"),
     'desc' => _("Select address book sources for adding and searching for addresses."),
     'members' => array('save_recipients', 'display_contact', 'sourceselect')
 );
+}
 
 if (isset($GLOBALS['conf']['utils']['gnupg'])) {
     $prefGroups['pgp'] = array(
@@ -257,10 +260,10 @@ $_prefs['save_sent_mail'] = array(
 // sent mail folder
 $_prefs['sent_mail_folder'] = array(
     // The mailbox value must be encoded in the UTF7-IMAP charset (see RFC
-    // 3501 [5.1.3]). For Exchange, uncomment the entry below and remove the
-    // default value entry.
+    // 3501 [5.1.3]).
+    'value' => String::convertCharset(_("Sent"), null, 'UTF7-IMAP'),
+    // For Exchange, uncomment the entry below.
     // 'value' => 'Sent Items',
-    'value' => _("Sent"),
     'locked' => false,
     'shared' => false,
     'type' => 'implicit');
@@ -298,7 +301,7 @@ $_prefs['folderselect'] = array('type' => 'special');
 $_prefs['drafts_folder'] = array(
     // The mailbox value must be encoded in the UTF7-IMAP charset (see RFC
     // 3501 [5.1.3]).
-    'value' => _("Drafts"),
+    'value' => String::convertCharset(_("Drafts"), null, 'UTF7-IMAP'),
     'locked' => false,
     'shared' => false,
     'type' => 'implicit');
@@ -310,10 +313,10 @@ $_prefs['trashselect'] = array('type' => 'special');
 // trash folder
 $_prefs['trash_folder'] = array(
     // The mailbox value must be encoded in the UTF7-IMAP charset (see RFC
-    // 3501 [5.1.3]). For Exchange, uncomment the entry below and remove the
-    // default value entry.
+    // 3501 [5.1.3]).
+    'value' => String::convertCharset(_("Trash"), null, 'UTF7-IMAP'),
+    // For Exchange, uncomment the entry below.
     // 'value' => 'Deleted Items',
-    'value' => _("Trash"),
     'locked' => false,
     'shared' => false,
     'type' => 'implicit');
@@ -326,7 +329,7 @@ $_prefs['spamselect'] = array('type' => 'special');
 $_prefs['spam_folder'] = array(
     // The mailbox value must be encoded in the UTF7-IMAP charset (see RFC
     // 3501 [5.1.3]).
-    'value' => _("Spam"),
+    'value' => String::convertCharset(_("Spam"), null, 'UTF7-IMAP'),
     'locked' => false,
     'shared' => false,
     'type' => 'implicit');
@@ -605,7 +608,9 @@ $_prefs['jseditor'] = array(
 
 // The list of buttons to show in FCKeditor
 $_prefs['fckeditor_buttons'] = array(
-    'value' => "[['FontFormat','FontName','FontSize'],['Bold','Italic','Underline'],['TextColor','BGColor'],'/',['JustifyLeft','JustifyCenter','JustifyRight','JustifyFull'],['OrderedList','UnorderedList','Outdent','Indent'],['Link'],['Undo','Redo']]",
+    'value' => "[['Source','FitWindow','-','Templates'],['Cut','Copy','Paste','PasteText','PasteWord'],['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],'/',['OrderedList','UnorderedList','-','Outdent','Indent','Blockquote'],['JustifyLeft','JustifyCenter','JustifyRight','JustifyFull'],['Link','Unlink'],['Image','Flash','Table','Rule','Smiley','SpecialChar'],'/',['Bold','Italic','Underline','StrikeThrough','-','Subscript','Superscript'],['TextColor','BGColor'],'/',['Style','FontFormat','FontName','FontSize']]",
+    // Use the following line for a very basic set of buttons:
+    // 'value' => "['Bold','Italic','-','OrderedList','UnorderedList','-','Link','Unlink']",
     'locked' => true,
     'shared' => false,
     'type' => 'textarea',
@@ -1074,7 +1079,7 @@ $_prefs['nav_popup'] = array(
 
 // play a sound on new mail? if so, which one?
 $_prefs['nav_audio'] = array(
-    'value' => 0,
+    'value' => '',
     'locked' => false,
     'shared' => false,
     'type' => 'implicit',

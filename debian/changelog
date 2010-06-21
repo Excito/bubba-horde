@@ -1,3 +1,9 @@
+bubba-horde (3.3.5ex6) vincent; urgency=low
+
+  * update imp4 config 
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 21 Jun 2010 10:09:03 +0200
+
 bubba-horde (3.3.5ex5) vincent; urgency=low
 
   * phpapi 

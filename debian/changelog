@@ -1,8 +1,9 @@
-bubba-horde (3.3.5ex6) vincent; urgency=low
+bubba-horde (3.3.8ex1) vincent; urgency=low
 
   * update imp4 config 
+  * updating turba2 config 
 
- -- Carl Fürstenberg <carl@excito.com>  Mon, 21 Jun 2010 10:09:03 +0200
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 21 Jun 2010 10:14:52 +0200
 
 bubba-horde (3.3.5ex5) vincent; urgency=low
 

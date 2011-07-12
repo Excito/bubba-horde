@@ -3,7 +3,7 @@ include_once '/etc/horde/debian-db.php';
 /* CONFIG START. DO NOT CHANGE ANYTHING IN OR AFTER THIS LINE. */
 // $Horde: horde/config/conf.xml,v 1.74.2.78 2008/09/12 10:01:41 jan Exp $
 $conf['vhosts'] = false;
-$conf['debug_level'] = E_ALL;
+$conf['debug_level'] = E_ALL ^ E_DEPRECATED;
 $conf['max_exec_time'] = 0;
 $conf['compress_pages'] = true;
 $conf['secret_key'] = 'c840da2d50fd50e030703514738d3832626fec9b';

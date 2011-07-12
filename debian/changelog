@@ -1,6 +1,7 @@
 bubba-horde (3.3.8ex2) vincent hugo; urgency=low
 
   * Remove deprecation information from debug errors
+  * Update standard version
 
  -- Carl Fürstenberg <carl@excito.com>  Tue, 12 Jul 2011 18:20:41 +0200
 
